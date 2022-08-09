@@ -5,20 +5,27 @@ class Main {
 
     // VARIABLES
     int codonCount = 0;
-    
+    boolean running = true;
 
     // OBJECTS
     Scanner scan = new Scanner(System.in);
-    Second myObj = new Second();
-    myObj.myMethod();
-    Third myObj2 = new Third();
-    myObj2.myMethod();
+    Generator generate = new Generator();
 
     // METHODS
-    System.out.println("\nHello!\nWelcome to the Caterpillar DNA sequence generator! \n\t🐛 🐛 🐛 \n\n\n");
-    System.out.println(
-        "Please enter the number of codons you would like your DNA gene sequence to have.\nYou may have anywhere from 0 codons to 10 codons.");
-    codonCount = scan.nextInt();
+    // starting?
+    System.out.println("\nHello!\nWelcome to the Caterpillar DNA sequence generator! \n\n\t🐛 🐛 🐛 \n\n\n");
+
+    while (running) {
+      System.out.println(
+          "Please enter the number of codons you would like your DNA gene sequence to have.\nYou may have anywhere from 0 codons to 10 codons.");
+      codonCount = scan.nextInt();
+      if (codonCount <= 10) {
+        generate.genSeq(codonCount);
+        System.out.println("The generated sequence is: " + generate.getSeq());
+        generate.clearSeq();
+      }
+
+    }
 
   }
 }
