@@ -7,25 +7,24 @@ class InputLogistics {
   int codonCount = 0;
   int branchChoice;
 
-
-  //intializing question
+  // intializing question
   public void ask() {
-    System.out.println("\n\n\nPlease choose enter the number of the following options:\n🐛 1\tGenerate an accurate DNA CODING STRAND sequence from the start codon to the stop codon.\n\t\t• \tFor more information about the difference between coding and template strands, please enter the number \"12\"\n🐛 2\tGenerate a problem to test yourself on your understanding of DNA questions. Good for teachers and students!\n🐛 3\tInput a DNA sequence of your own and let the computer check if it is correct!");
+    System.out.println(
+        "\n\n\nPlease type the number of the following options:\n🐛 1\tGenerate a DNA CODING STRAND sequence.\n\t\t• \tWhat is a  coding strands? To learn, please enter \"12\"\n🐛 2\tGenerate a mock exam problem.\n\t\t•Has teacher vers and student ver!\n🐛 3\tInput a DNA CODING sequence to check if it is a valid sequence!");
     branchChoice = scan.nextInt();
   }
 
-  
-  //ask for codonCount to begin generator
+  // ask for codonCount to begin generator
   public void startGen() {
     System.out.println(
-          "Please enter the number of codons you would like your DNA gene sequence to have.\nYou may have anywhere from 0 codons to 10 codons.");
-  
+        "Please enter the number of codons you would like your DNA gene sequence to have.\nYou may have anywhere from 0 codons to 10 codons.");
+
     codonCount = scan.nextInt();
     if (codonCount <= 10) {
       generate.genSeq(codonCount);
-      System.out.println("The generated sequence is: " + generate.getSeq());
+      System.out.println("The generated sequence, from start to stop is: " + generate.getSeq());
       generate.clearSeq();
     }
-}
-  
+  }
+
 }
