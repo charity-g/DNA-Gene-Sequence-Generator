@@ -1,4 +1,19 @@
 class Checker {
+  //VAR
+  String dnaSeq;
+  String[] dnaSeqArr;
 
-  // https://www.delftstack.com/howto/java/how-to-split-string-to-array-in-java/#:~:text=comes%20in%20handy.-,Use%20split(delimiter)%20to%20Split%20String%20to%20an%20Array%20in,each%20value%20in%20the%20array.
+  // Main METHOD
+  public void checkCodSeq(String in) {
+    dnaSeq = in;
+
+    dnaSeqArr = dnaSeq.split("");
+    
+  }
+
+  for (int i=0; i<dnaSeqArr.length; i++) {
+        System.out.println(dnaSeqArr[i]);
+            
+    }
+    System.out.println("Done");
 }

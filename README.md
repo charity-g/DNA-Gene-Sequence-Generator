@@ -1,7 +1,10 @@
 # References
 
+https://emojipedia.org/bug/
 
-https://replit.com/@GLiQue/ASCII-ART-GENERATOR?v=1 
+https://www.youtube.com/watch?v=9qyi6xgOjEk
+
+https://www.delftstack.com/howto/java/how-to-split-string-to-array-in-java/
 
 ## Fellow replits that I took inspiration from
 
