@@ -26,6 +26,9 @@ class Main {
           System.out.println("My deepest apologies, but this section is a work in progress. Please pick another option.");
           break;
         case 3:
+          question.startCheck();
+          break;
+        case 31:
           System.out.println("My deepest apologies, but this section is a work in progress. Please pick another option.");
           break;
         case 4:
