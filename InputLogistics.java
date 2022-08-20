@@ -34,18 +34,5 @@ class InputLogistics {
   // ask for DNA coding strand to begin checker for coding strand. If you would
   // like the program to digitally convert a template strand to a coding strand,
   // please restart it and choose option 4.
-  public void startCheck() {
-    System.out.println("No spaces"); // !!!
-    dnaSeq = scan.nextLine();
-
-    if (!dnaSeq.equals("temporary placeholder")) {
-      check.Check(dnaSeq);
-    } else {
-      System.out.println("You have somehow not entered anything.");
-    }
-    //need to check if dnaSeq is a string or not or something
-    //then
-    //check. FUNCTION/METHOD here with inserted dnaSeq
-  }
 
 }
