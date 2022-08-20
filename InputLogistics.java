@@ -7,7 +7,7 @@ class InputLogistics {
 
   int codonCount = 0;
   int branchChoice;
-  String dnaSeq;
+  String dnaSeq = "temporary placeholder";
 
   // intializing question
   public void ask() {
@@ -37,6 +37,12 @@ class InputLogistics {
   public void startCheck() {
     System.out.println("No spaces"); // !!!
     dnaSeq = scan.nextLine();
+
+    if (!dnaSeq.equals("temporary placeholder")) {
+      check.Check(dnaSeq);
+    } else {
+      System.out.println("You have somehow not entered anything.");
+    }
     //need to check if dnaSeq is a string or not or something
     //then
     //check. FUNCTION/METHOD here with inserted dnaSeq
