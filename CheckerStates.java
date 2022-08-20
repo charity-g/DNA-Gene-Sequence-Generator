@@ -20,6 +20,7 @@ class CheckerStates {
     result = "";
     dnaSeqArr = seq.split("");
     length = dnaSeqArr.length;
+    codonsSeen = 0;
     counter = 0;
     stateOn = 0;
     runCheck = true;
@@ -180,6 +181,7 @@ class CheckerStates {
       case "A":
       case "G":
         updateRes("\nStop codon found after " + (counter-2) + " nucleotides.\nValid DNA coding sequence can be transcribed until this point. The mRNA will not see anything else after this point, and thus the computer also will not have seen anything after this point.");
+        updateRes("\nThe given dna gene has " + codonsSeen + " codons in between the first start and stop codon.");
         stateOn = 7;
         nextLetter();
         break;
@@ -199,6 +201,7 @@ class CheckerStates {
     switch (dnaSeqArr[counter]) {
       case "A":
         updateRes("\nStop codon found after " + (counter-2) + " nucleotides.\nValid DNA coding sequence can be transcribed until this point. The mRNA will not see anything else after this point, and thus the computer also will not have seen anything after this point.");
+        updateRes("\nThe given dna gene has " + codonsSeen + " codons in between the first start and stop codon.");
         stateOn = 7;
         nextLetter();
         break;
