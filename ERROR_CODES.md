@@ -1,0 +1,2 @@
+ERROR 1
+- refers to entering a DNA sequence into Complement but it is not valid so cannot be translated or whatever. You got here because some how your sequence had other characters other than A, T, G or C but the methods to translate were being called because you checked valid 
