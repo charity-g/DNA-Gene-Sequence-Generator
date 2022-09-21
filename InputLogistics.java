@@ -10,7 +10,7 @@ class InputLogistics {
   int branchChoice;
   String dnaSeq = "temporary placeholder";
 
-  // intializing question
+  // EFFECT: asks question + record's user's choice
   public void ask() {
     System.out.println(
         "\n\n\nPlease type the number of the following options:\n🐛 1\tGenerate a DNA CODING STRAND sequence.\n\t\t• \tWhat is a  coding strand? To learn, please enter \"12\"\n🐛 2\tGenerate a mock exam problem.\n\t\t•Has teacher vers and student ver!\n🐛 3\tInput a DNA CODING sequence to check if it is valid.\n\t\t• \tWhat is do the terms 5' and 3' mean? To learn, please enter \"31\"!\n🐛 4\tInput a DNA Seq and recieve it's complementary strand");
@@ -18,7 +18,8 @@ class InputLogistics {
     scan.nextLine(); // here to reset the line for the next input
   }
 
-  // ask for codonCount so we can begin generator
+  // EFFECT: records codonCount and if codonCount is a valid number, begins the
+  // generator
   public void startGen() {
     System.out.println(
         "You will be producing a sequence that goes from 5' to 3'. To learn more, please restart the program and enter \"31\".\n \n To begin the generator, please enter the number of codons you would like your DNA gene sequence to have.\nYou may have anywhere from 0 codons to 10 codons.");
@@ -27,13 +28,12 @@ class InputLogistics {
     if (codonCount <= 10 && codonCount >= 0) {
       generate.genSeq(codonCount);
       System.out.println("The generated sequence, from start to stop is: " + generate.getSeq());
-      generate.clearSeq();
     } else {
       System.out.println("That is not an allowed number of codons, please try again >:(");
     }
   }
 
-  // ask for codon strand to begin checker
+  // EFFECT: records the user's dnaSeq from 5' -> 3' and calls the methods to check it
   public void startCheck() {
     System.out.println(
         "Please enter your coding strand, from 5' to 3'. No spaces.\nIf you don't understand what 5' and 3' means, please restart the program and choose option 31.");
@@ -47,8 +47,11 @@ class InputLogistics {
     dnaSeq = "temporary placeholder";
   }
 
+  // EFFECT: takes in a DNA sequence and if the codons are all valid, then it will
+  // ask the user to choose it's desired output, and call the necessary methods to
+  // perform that
   public void makeComplement() {
-    System.out.println("Please input your sequence. It does not matter whether it is 5' to 3' or vice versa.");
+    System.out.println("Please input your sequence. It doesn't matter whether it is 5' to 3' or 3' to 5'.");
     String sequenceAns = scan.nextLine();
     ;
     complement = new Complement(sequenceAns);

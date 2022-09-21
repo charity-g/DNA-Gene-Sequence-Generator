@@ -3,22 +3,25 @@ import java.lang.*;
 class Generator {
 
   // VARIABLES
-  public String seq = "";
+  private String seq;
   private String firstC;
   private String seconC;
   private String thirdC;
-  // CONSTUCTORS
 
-  // ACCESSORS
-  public String getSeq() { // seq getter
+  // CONSTRUCTOR
+  // EFFECTS: Initializes seq to be empty
+  Generator() {
+    seq = "";
+  }
+
+  // ACCESSOR
+  public String getSeq() {
     return seq;
   }
 
-  public void clearSeq() { // seq setter
-    this.seq = "";
-  }
-
-  // MAIN METHOD, purpose: to generate a coding strand sequence DNA
+  // MAIN METHOD
+  // MODIFIES: this
+  // EFFECTS: adds the appropriate number of codons to the variable seq
   public void genSeq(int codonCount) {
     startCodon();
     addCodons(codonCount);
@@ -27,20 +30,26 @@ class Generator {
   }
 
   // SUBMETHODS
-  // startCodon, purpose: to put DNA coding strand “ATG” in string
+  // REQUIRES: seq to be empty
+  // MODIFIES: this
+  // EFFECTS: to initialize the start codon
   private void startCodon() {
     seq += "ATG";
   }
 
-  // addCodons, purpose: to add as many codons as required by user
+  // REQUIRES: start codon to have been added in seq
+  // MODIFIES: this
+  // EFFECTS: to add as many codons as counter
   private void addCodons(int counter) {
     for (int i = 0; i < counter; i++) {
       addCodon();
     }
   }
 
-  // addCodon, purpose: to add ONE codon, ensures a stop codon is not added
-private void addCodon() {
+  // REQUIRES: start codon to have been added in seq
+  // MODIFIES: this
+  // EFFECTS: to add ONE codon, and ensures a stop codon is not added
+  private void addCodon() {
     firstC = chooseCodon();
     seconC = chooseCodon();
     thirdC = chooseCodon();
@@ -56,14 +65,14 @@ private void addCodon() {
         case "G":
           if (thirdC == "A") {
             thirdC = chooseOutOf3("C", "T", "G");
-           }
+          }
           break;
       }
     }
     seq = seq + firstC + seconC + thirdC;
   }
 
-
+  // EFFECTS: returns randomly one of the following: "A", "T", "C", "G"
   private String chooseCodon() {
     String choice = "";
     switch ((int) (Math.random() * 4)) {
@@ -83,8 +92,9 @@ private void addCodon() {
     return choice;
   }
 
-  // overloading ChooseOutOf
-  static String outOf2(String a, String b) {
+
+  // EFFECTS: choose randomly a or b
+  private String outOf2(String a, String b) {
     String choice = "";
     switch ((int) (Math.random() * 2)) {
       case 0:
@@ -97,7 +107,8 @@ private void addCodon() {
     return choice;
   }
 
-  static String chooseOutOf3(String a, String b, String c) {
+  // EFFECTS: choose randomly out of the 3 options, a, b, or c
+  private String chooseOutOf3(String a, String b, String c) {
     String choice = "";
     switch ((int) (Math.random() * 3)) {
       case 0:
@@ -113,7 +124,9 @@ private void addCodon() {
     return choice;
   }
 
-  // addStop, purpose: to put DNA coding strand “ATG” in string
+  // REQUIRES: a start codon to be added to seq prior to this
+  // MODIEFIES: this
+  // EFFECTS: to put any one of the DNA stop codons in seq
   private void addStop() {
     switch ((int) (Math.random() * 3)) {
       case 0:

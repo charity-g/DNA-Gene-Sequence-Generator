@@ -10,9 +10,10 @@ class Main {
     InputLogistics question = new InputLogistics();
 
     // METHODS
-    // starting
+    // EFFECTS: Welcome text
     System.out.println("\nHello!\nWelcome to the Caterpillar DNA sequence generator! \n\n\t🐛 🐛 🐛 \n\n\n");
 
+    //EFFECTS: parses user choice and calls the methods needed to execute that choice 
     while (running) {
       question.ask();
       switch (question.branchChoice) {
